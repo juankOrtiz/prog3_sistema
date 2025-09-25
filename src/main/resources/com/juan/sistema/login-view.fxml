@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" spacing="10" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.juan.sistema.controllers.LoginController">
+    <Label text="Iniciar Sesión" styleClass="title" />
+    <TextField fx:id="usernameField" promptText="Usuario" />
+    <PasswordField fx:id="passwordField" promptText="Contraseña" />
+    <Button text="Acceder" onAction="#manejarBotonLogin" />
+    <Hyperlink text="¿No tienes cuenta? Regístrate aquí" onAction="#manejarLinkRegistro" />
+</VBox>
