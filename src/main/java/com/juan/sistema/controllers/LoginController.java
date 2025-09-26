@@ -26,7 +26,12 @@ public class LoginController {
         String username = usernameField.getText();
         String password = passwordField.getText();
 
-        // TODO
+        // TODO TAREA: validar campos
+        if(usuarioDAO.comprobarLogin(username, password)) {
+            mostrarAlerta("Login exitoso", "Bienvenido, " + username + "!");
+        } else {
+            mostrarAlerta("Error de login", "Usuario o contrasenia incorrectos");
+        }
     }
 
     @FXML
