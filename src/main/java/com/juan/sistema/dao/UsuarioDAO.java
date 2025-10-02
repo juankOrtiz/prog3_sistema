@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UsuarioDAO {
 
@@ -42,15 +44,40 @@ public class UsuarioDAO {
         return null;
     }
 
-    public boolean comprobarLogin(String nombre, String password) {
+    public Usuario comprobarLogin(String nombre, String password) {
         // Obtener el usuario de la BD por el nombre buscado
         Usuario usuario = obtenerUsuario(nombre);
-        // Si el usuario existe en la BD..
-        if(usuario != null) {
+
+        // Si el usuario existe en la BD...
+        if (usuario != null) {
             // Comparamos la contrasenia ingresada con la contrasenia encriptada en la BD
-            return BCrypt.checkpw(password, usuario.getPassword());
+            if (BCrypt.checkpw(password, usuario.getPassword())) {
+                return usuario; // Login exitoso: devuelve el objeto Usuario
+            }
         }
-        // Por defecto, devolvemos false si no existe el usuario
-        return false;
+        // Por defecto, devolvemos null si no existe el usuario o la contrasenia es incorrecta
+        return null;
+    }
+
+    public List<Usuario> obtenerOtrosUsuarios(int excluidoId) throws SQLException {
+        List<Usuario> usuarios = new ArrayList<>();
+        // Asumimos que la BD tiene la tabla 'usuarios' con 'id' y 'nombre'
+        String consulta = "SELECT id, nombre FROM usuarios WHERE id != ?";
+
+        try (Connection conn = DatabaseConnection.getConexion();
+             PreparedStatement stmt = conn.prepareStatement(consulta)) {
+
+            stmt.setInt(1, excluidoId);
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) {
+                    int id = rs.getInt("id");
+                    String nombre = rs.getString("nombre");
+                    // Aquí solo necesitamos el ID y el nombre para el ComboBox
+                    usuarios.add(new Usuario(id, nombre, ""));
+                }
+            }
+        }
+        return usuarios;
     }
 }

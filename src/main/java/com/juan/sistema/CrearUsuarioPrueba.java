@@ -9,8 +9,8 @@ import java.sql.SQLException;
 
 public class CrearUsuarioPrueba {
     public static void main(String[] args) {
-        String nombre = "admin";
-        String password = "admin";
+        String nombre = "otro";
+        String password = "otro";
         String password_encriptada = BCrypt.hashpw(password, BCrypt.gensalt());
         String consulta = "INSERT INTO usuarios(nombre, password) VALUES (?, ?)";
         try (Connection conn = DatabaseConnection.getConexion()) {

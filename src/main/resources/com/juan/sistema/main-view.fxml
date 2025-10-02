@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.juan.sistema.controllers.CuentaController"
+      spacing="10"
+      alignment="TOP_CENTER"
+      style="-fx-padding: 20;">
+
+    <Label text="Mis Cuentas Bancarias" style="-fx-font-size: 18pt; -fx-font-weight: bold;"/>
+
+    <TableView fx:id="tablaCuentas" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+            <TableColumn fx:id="colDescripcion" text="Descripción" prefWidth="250"/>
+            <TableColumn fx:id="colSaldo" text="Saldo" prefWidth="150"/>
+        </columns>
+    </TableView>
+
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Realizar Transferencia" onAction="#manejarBotonTransferencia"/>
+        <Button text="Crear Nueva Cuenta" onAction="#manejarBotonCrear"/>
+        <Button text="Editar Descripción" onAction="#manejarBotonEditar"/>
+        <Button text="Eliminar Cuenta" onAction="#manejarBotonEliminar"/>
+    </HBox>
+</VBox>

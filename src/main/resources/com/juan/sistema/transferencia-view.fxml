@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.juan.sistema.controllers.TransferenciaController"
+      spacing="15"
+      style="-fx-padding: 20;">
+
+    <Label text="Realizar Transferencia" style="-fx-font-size: 16pt; -fx-font-weight: bold;"/>
+
+    <GridPane vgap="10" hgap="10">
+        <columnConstraints>
+            <ColumnConstraints prefWidth="150.0" />
+            <ColumnConstraints prefWidth="250.0" />
+        </columnConstraints>
+
+        <Label text="Cuenta Origen:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+        <ComboBox fx:id="cbOrigen" promptText="Selecciona tu cuenta" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+
+        <Label fx:id="saldoLabel" text="Saldo: $0.00" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+
+        <Separator orientation="HORIZONTAL" GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.columnSpan="2"/>
+
+        <Label text="Usuario Destino:" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+        <ComboBox fx:id="cbUsuarioDestino" promptText="Selecciona usuario" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+
+        <Label text="Cuenta Destino:" GridPane.rowIndex="4" GridPane.columnIndex="0" />
+        <ComboBox fx:id="cbDestino" promptText="Selecciona su cuenta" GridPane.rowIndex="4" GridPane.columnIndex="1" />
+
+        <Separator orientation="HORIZONTAL" GridPane.rowIndex="5" GridPane.columnIndex="0" GridPane.columnSpan="2"/>
+
+        <Label text="Monto a Transferir:" GridPane.rowIndex="6" GridPane.columnIndex="0" />
+        <TextField fx:id="montoField" promptText="0.00" GridPane.rowIndex="6" GridPane.columnIndex="1" />
+
+    </GridPane>
+
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Transferir" onAction="#manejarBotonTransferir" style="-fx-background-color: #007bff; -fx-text-fill: white;"/>
+        <Button text="Cancelar" onAction="#manejarBotonCancelar"/>
+    </HBox>
+</VBox>

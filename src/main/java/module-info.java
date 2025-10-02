@@ -10,4 +10,7 @@ module com.juan.sistema {
 
     opens com.juan.sistema.controllers to javafx.fxml;
     exports com.juan.sistema.controllers;
+
+    opens com.juan.sistema.models to javafx.fxml;
+    exports com.juan.sistema.models;
 }
