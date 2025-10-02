@@ -1,62 +1,29 @@
-# Sistema JavaFX + JDBC
+# Programacion 3 - Sistema
 
-Este es un sistema de gestión desarrollado con JavaFX para la interfaz de usuario y JDBC (Java Database Connectivity) para la conexión a la base de datos, para la materia Programacion 3 del IPESMI (Sede Obera)
+Ejemplo de sistema de gestión desarrollado con JavaFX para la interfaz de usuario y JDBC para la conexión a la base de datos. El código pertenece a la materia Programación III de la carrera Analista de Sistemas del IPESMI (Sede Oberá) - 2025.
 
 ## 🛠️ Requisitos previos
 
 Para poder ejecutar este proyecto en tu computadora, necesitas tener instalado lo siguiente:
 
-- Java Development Kit (JDK) 8 o superior: la version usada en clases
+- Java Development Kit (JDK) 8 o superior: la versión usada en desarrollo fue la 24.0.2.
+- Base de datos MySQL, version 8 o superior.
+- IDE: el proyecto fue desarrollado con IntelliJ IDEA.
 
-    JavaFX SDK: El proyecto utiliza JavaFX para la interfaz gráfica. Necesitarás tener el SDK de JavaFX. Puedes descargarlo desde aquí.
+## 🚀 Pasos para la instalación local
 
-    Base de datos: El proyecto se conecta a una base de datos a través de JDBC.
+1. Clonar el repositorio con el siguiente comando:
 
-        Driver JDBC: Dependiendo de la base de datos que uses (por ejemplo, MySQL, PostgreSQL, SQLite), necesitarás el driver JDBC correspondiente. El driver debe ser incluido en la carpeta lib de tu proyecto o como una dependencia de tu IDE.
+ ```sh
+git clone https://github.com/juankOrtiz/prog3_sistema.git
+```
 
-    IDE (Entorno de Desarrollo Integrado): Se recomienda usar un IDE como IntelliJ IDEA o Eclipse, ya que facilitan la configuración de las librerías de JavaFX y el driver JDBC.
+2. Configurar la base de datos, utilizando el archivo ```db.sql``` para crear la base de datos y las tablas necesarias en el servidor local.
 
-🚀 Pasos para la instalación local
+3. Configurar el proyecto en tu IDE: abre el proyecto con IntelliJ IDEA y configura la versión apropiada de la SDK, en caso de ser necesario.
 
-Sigue estos pasos para configurar y ejecutar el proyecto en tu máquina.
+4. Instalar las dependencias de Maven: asegurate que una vez instaladas figuren en la carpeta de librerías del proyecto.
 
-    Clonar el repositorio:
-    Abre tu terminal o Git Bash y clona el repositorio a tu máquina local:
-    Bash
+5. Configurar la conexión a base de datos: crear una copia del archivo ```config.example.properties``` y renombrar como ```config.properties```, agregando las credenciales de la base de datos local
 
-git clone https://github.com/tu-usuario/nombre-del-repo.git
-
-Configurar la base de datos:
-
-    Crea una base de datos con el nombre nombre_de_la_db en tu sistema.
-
-    Ejecuta el archivo script.sql (o el nombre que tenga tu script de base de datos) que se encuentra en la carpeta raíz del proyecto para crear las tablas y datos iniciales.
-
-Configurar el proyecto en tu IDE:
-
-    Abre tu IDE (IntelliJ IDEA o Eclipse) e importa el proyecto.
-
-    Añadir las librerías de JavaFX y JDBC:
-
-        JavaFX: Ve a la configuración de tu proyecto y agrega el SDK de JavaFX como una librería externa.
-
-        Driver JDBC: Asegúrate de que el archivo .jar de tu driver JDBC esté incluido en las librerías de tu proyecto. Generalmente, esto se hace copiándolo a una carpeta lib y luego agregándolo a la ruta de clases del proyecto.
-
-Configurar la conexión a la base de datos:
-
-    Abre el archivo de configuración de la base de datos (por ejemplo, config/DatabaseConnection.java o similar).
-
-    Actualiza la URL de la base de datos, el usuario y la contraseña según tu configuración local.
-
-Java
-
-private static final String DB_URL = "jdbc:mysql://localhost:3306/nombre_de_la_db";
-private static final String USER = "tu_usuario";
-private static final String PASS = "tu_contraseña";
-
-
-*
-5.  Ejecutar el proyecto:
-    Una vez que todas las librerías estén configuradas y la conexión a la base de datos esté actualizada, puedes ejecutar la clase principal del proyecto (usualmente Main.java o App.java).
-
-¡Y listo! Ya deberías ver la interfaz de usuario de la aplicación. Si tienes algún problema, por favor crea un issue en este repositorio.
+6. Ejecutar el proyecto: ejecuta el archivo ```Main.java``` y confirma que ves la ventana de login.
